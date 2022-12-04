@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>魔術方陣</title>
+</head>
+<script language="javascript">
+	num=parseFloat(prompt("請輸入一個數字","3"));
+	if(num%2==0)  //若不是奇數要加1
+		num1=num+1;
+		//alert(num1); 測試
+	
+	function magic(num) {
+    var Ans = [];
+    for(var i = 0; i < num; i++) {
+        Ans.push([]);
+    }
+
+    var x = 0;
+    var y = 1;
+    for(var key = 1; key < num * num + 1; key ++) {
+        if(key % num == 1) {
+            x++;
+        }
+        else {
+            x--;
+            y++;
+        }
+        if(x == 0) {
+            x = num;
+        }
+        if (y > num) {
+            y = 1;
+        }
+        Ans[x-1][y-1] = key;
+    }        
+    return Ans
+}
+	Ans = magic(num);
+	Ans=String(Set);
+	var str=Ans.split(",").join(" ");
+    //while (i=0;str.length>num;i++)  待調整
+	document.write("魔術方陣:</br>"+str);
+</script>
+<body>
+</body>
+</html>
